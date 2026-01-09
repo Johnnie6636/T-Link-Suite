@@ -3,14 +3,11 @@ import { auth } from './services/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import WalletPage from './pages/WalletPage'; // 1. นำเข้าหน้ากระเป๋าเงิน
+
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  
-  // 2. เพิ่ม State สำหรับควบคุมการเปลี่ยนหน้า (เริ่มต้นที่หน้า home)
-  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

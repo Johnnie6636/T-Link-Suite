@@ -6,6 +6,7 @@ import '../styles/ChatList.css';
 function ChatList({ onChatClick }) {
   const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const currentUserUid = auth.currentUser?.uid;
 
   useEffect(() => {
     if (!auth.currentUser) { return; }
@@ -43,7 +44,7 @@ function ChatList({ onChatClick }) {
     });
 
     return () => unsubscribe();
-  }, [auth.currentUser]);
+  }, [currentUserUid]);
 
   if (loading) return <p style={{ padding: '20px' }}>กำลังโหลดรายการแชท...</p>;
 

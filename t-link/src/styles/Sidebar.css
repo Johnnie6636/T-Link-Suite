@@ -23,7 +23,7 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%); /* พื้นหลังดำหรู */
   color: #d4af37; /* ตัวอักษรทอง */
   border-bottom: 3px solid #b8860b;
-  text-align: left;
+  text-align: center;
 }
 
 /* วงกลมรูปโปรไฟล์ */

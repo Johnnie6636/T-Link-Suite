@@ -1,122 +1,145 @@
+/* นำเข้า Font เพิ่มเติมเพื่อให้ดูละมุนขึ้น */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
 * {
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* เพิ่ม Animation ให้ทุกอย่าง */
 }
 
 body {
   margin: 0;
-  /* พื้นหลังด้านนอกคอนเทนเนอร์ให้ดูมืดลงเพื่อขับตัวแอปให้เด่น */
-  background-color: #121212; 
+  background-color: #0f0f0f; /* พื้นหลังข้างนอกมืดสนิทแบบ OLED */
+  background-image: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
 }
 
-/* 1. การตั้งค่าหน้าจอหลัก */
+/* 1. การตั้งค่าหน้าจอหลัก - ทรง iPhone/Android ทันสมัย */
 .home-container {
-  max-width: 500px;
-  height: 100vh;
+  max-width: 480px; /* ปรับขนาดให้กระชับขึ้น */
+  height: 100dvh;
+  min-height: 100dvh;
   margin: 0 auto;
-  background-color: #fdfaf0; /* สีครีมกระดาษพรีเมียม */
-  min-height: 100vh;
+  background-color: #faf8f2; /* สีครีมสว่างสะอาดตา */
   position: relative;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 2. Header สไตล์ปกสมุดบัญชีทอง */
+/* 2. Header - ดีไซน์แบบลอย (Floating Glass) */
 .home-header {
-  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-  color: #d4af37; /* สีทอง */
-  padding: 15px 20px;
+  background: rgba(26, 26, 26, 0.95); /* กึ่งโปร่งใส */
+  backdrop-filter: blur(10px);
+  color: #d4af37;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 3px solid #d4af37;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* 3. ปุ่มเมนู (☰) */
+/* 3. ปุ่มเมนู (☰) - ทรงกลมมน ทันสมัย */
 .menu-btn {
-  background: #d4af37;
+  background: linear-gradient(145deg, #d4af37, #b8860b);
   border: none;
-  color: #1a1a1a;
-  font-size: 20px;
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
+  color: #000;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* เปลี่ยนเป็นวงกลม */
   cursor: pointer;
-  margin-right: 15px;
+  margin-right: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
 }
 
 .menu-btn:hover {
+  transform: rotate(90deg) scale(1.1); /* หมุนเวลา Hover */
   background: #f1d37c;
-  transform: scale(1.05);
 }
 
 .app-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  background: linear-gradient(to right, #d4af37, #f1d37c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* ตัวหนังสือสีทองไล่เฉด */
 }
 
 /* 4. ส่วนเนื้อหาหลัก */
 .content-area {
-  flex: 1; /* ส่วนเนื้อหา (รวมถึงหน้าแชท) จะกินพื้นที่ที่เหลือทั้งหมด */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 0; /* ป้องกันเนื้อหาดันจนล้น */
+  min-height: 0;
+  padding-bottom: 0;
 }
 
-/* 5. หัวข้อแบ่งส่วน (Section Title) */
+/* 5. หัวข้อแบ่งส่วน - ดู Clean และ Minimal */
 .section-title {
-  padding: 20px 20px 10px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #b8860b; /* สีทองเข้ม */
+  padding: 25px 24px 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8b7355;
   text-transform: uppercase;
-  border-bottom: 1px solid #e0dcc5;
-  margin-bottom: 5px;
-  background-color: rgba(212, 175, 55, 0.05);
+  letter-spacing: 1.5px;
+  background: transparent;
+  border: none; /* เอาเส้นขอบล่างออกเพื่อความคลีน */
 }
 
-/* 6. Overlay พื้นหลังมืดเวลาเปิด Sidebar */
+/* 6. Overlay - นุ่มนวลขึ้น */
 .sidebar-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px); /* เพิ่มความเบลอให้พื้นหลัง */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
   z-index: 1000;
-  animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* 7. ส่วนของ List Section */
+/* 7. เพิ่มลูกเล่นให้รายการแชท (ใช้ Class ที่มีใน Component ลูก) */
+/* แม้ไม่มีใน Home.js โดยตรง แต่ CSS จะวิ่งไปจับที่ ChatList อัตโนมัติ */
 .list-section {
-  background-color: transparent;
+  padding: 0 15px;
 }
 
-/* ตกแต่ง Scrollbar ให้ดูหรู */
+/* การ์ดในรายการแชท (ถ้ามีการใช้ class .chat-item) */
+.chat-item {
+  background: white;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+}
+
+/* 8. Scrollbar - สไตล์มินิมอล */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fdfaf0;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
-  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 20px;
+}
+
+/* หน้าห้องแชท (ChatRoom) ให้ดูสะอาดตา */
+.chat-room-container {
+    background-color: #faf8f2;
 }

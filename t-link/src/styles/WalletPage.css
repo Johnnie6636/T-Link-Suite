@@ -87,7 +87,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-image: repeating-linear-gradient(#fdfaf0, #fdfaf0 30px, #e0dcc5 31px); /* ลายเส้นบรรทัด */
+  background-image: repeating-linear-gradient(#fdfaf0, #fdfaf0 30px, #e0dcc5 0px); /* ลายเส้นบรรทัด */
 }
 
 .info-row {

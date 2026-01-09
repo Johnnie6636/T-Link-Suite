@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "my-contact-b122f"
-  }
+  },
+  "targets": {
+    "my-contact-b122f": {
+      "hosting": {
+        "messenger": [
+          "t-link-messenger"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
